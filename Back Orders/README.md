@@ -1,3 +1,6 @@
+<img width="948" height="632" alt="image" src="https://github.com/user-attachments/assets/32cc49d3-95de-42e0-b147-f50a0847015e" />
+
+
 # SAP Back Orders Automation (RPA)
 
 ## 🚀 Executive Summary
