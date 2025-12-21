@@ -1,3 +1,6 @@
+<img width="912" height="608" alt="image" src="https://github.com/user-attachments/assets/80af4266-0222-4a4b-ae7a-5b4c7ac2615d" />
+
+
 # SAP Pending Invoices Automation (RPA)
 
 ## 🚀 Executive Summary
