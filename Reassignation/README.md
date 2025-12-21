@@ -1,3 +1,6 @@
+<img width="824" height="549" alt="image" src="https://github.com/user-attachments/assets/952cfa96-c051-41b8-a673-775744b11bea" />
+
+
 # SAP Re-Allocation Automation (RPA)
 
 ## 🚀 Executive Summary
