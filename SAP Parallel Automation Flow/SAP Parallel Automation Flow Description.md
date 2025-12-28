@@ -1,3 +1,6 @@
+<img width="1536" height="1024" alt="SAP Parallel Automation Flow" src="https://github.com/user-attachments/assets/7fcf0101-403a-413b-92dc-e5deef91dd3c" />
+
+
 # Parallel SAP Web Automation for Reporting & Email Distribution
 
 ## 🔍 Overview
