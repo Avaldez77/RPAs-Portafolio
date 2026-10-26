@@ -1,6 +1,7 @@
 # RPA engineering exercises
 
-All exercises use the invoice follow-up demo and synthetic data. Do not connect
+All exercises use the invoice follow-up demo and clearly identified
+illustrative data. Do not connect
 the exercises to SAP, Outlook, SMTP, or a production environment.
 
 ## 1. Idempotent report generation
@@ -36,6 +37,17 @@ validated before approval, and tests prove both approved and rejected paths.
 Add tests for malformed dates, non-finite amounts, empty input, and output
 write failures. Confirm that no success-shaped output is reported after a
 failed run.
+
+## 5. Purchase-order invoice reconciliation
+
+Run the local [reconciliation workflow](../rpa_demo/reconciliation.py) to
+match invoices against purchase orders, apply a currency and amount-tolerance
+check, and produce an exception report. It does not approve, pay, or send
+notifications.
+
+**Acceptance criteria:** missing references, duplicate invoice IDs, currency
+mismatches, and amount differences are explicit; invalid input fails before
+outputs are written; identical input produces deterministic output.
 
 Run the current tests from the repository root:
 

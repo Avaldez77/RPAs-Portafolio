@@ -16,3 +16,5 @@ jobs:
         run: python -m unittest discover -s rpa_demo/tests -v
       - name: Run offline demo
         run: python -m rpa_demo --output-dir build/ci-demo --as-of 2026-01-15 --min-days-overdue 7
+      - name: Run invoice reconciliation
+        run: python -m rpa_demo.reconciliation --output-dir build/ci-reconciliation

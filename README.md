@@ -24,6 +24,7 @@ The repository has two kinds of material:
 | [Back Orders](./Back%20Orders/) | Excel processing and Tableau Hyper output | Sanitized workflow scripts |
 | [Send automatic report](./Send%20automatic%20report/) | Dashboard capture and email distribution | Sanitized implementation |
 | [Invoice follow-up demo](./rpa_demo/) | Reproducible validation, reporting, email preview, and audit log | Fully runnable demo |
+| [Invoice reconciliation](./rpa_demo/reconciliation.py) | Purchase-order matching, currency and tolerance checks, exception report | Local CSV and JSON outputs |
 | [Hands-on exercises](./Exercises/README.md) | Idempotency, retries, and failure-path validation without live integrations | Exercise guide |
 
 ## Run the local demo
@@ -43,6 +44,15 @@ Run the automated checks with:
 
 ```bash
 python -m unittest discover -s rpa_demo/tests -v
+```
+
+Run the local purchase-order reconciliation with:
+
+```bash
+python -m rpa_demo.reconciliation \
+  --invoices rpa_demo/sample_data/invoices_to_reconcile.csv \
+  --purchase-orders rpa_demo/sample_data/purchase_orders.csv \
+  --output-dir build/reconciliation
 ```
 
 ## Design principles

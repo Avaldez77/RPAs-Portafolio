@@ -1,0 +1,5 @@
+invoice_id,po_id,amount,currency
+INV-100,PO-100,125.00,USD
+INV-200,PO-200,95.00,EUR
+INV-300,PO-300,40.00,EUR
+INV-400,PO-404,50.00,USD
