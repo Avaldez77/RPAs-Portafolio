@@ -15,6 +15,12 @@ and automation portfolio. See the
 [Data Engineering & Big Data](https://github.com/Avaldez77/Data-Engineering-Big-Data-Portafolio),
 and [Data Science](https://github.com/Avaldez77/Data-science-Portafolio).
 
+## Featured end-to-end case
+
+[Capital Bikeshare Demand Intelligence](https://github.com/Avaldez77/BikeShare-Demand-Intelligence)
+includes a dry-run delivery step with a checksum manifest, audit trail, and
+notification preview.
+
 The repository has two kinds of material:
 
 - **Case studies** document the original process, design decisions, and selected
