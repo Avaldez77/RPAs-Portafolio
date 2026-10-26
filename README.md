@@ -6,6 +6,15 @@ production integrations depend on private enterprise systems, so host names,
 credentials, recipients, and business data have been removed or replaced with
 placeholders.
 
+## Connected portfolio
+
+This repository focuses on reliable process automation within a four-part data
+and automation portfolio. See the
+[profile overview](https://github.com/Avaldez77/Avaldez77) or explore
+[Data Analytics](https://github.com/Avaldez77/Data-Analytics-Portafolio),
+[Data Engineering & Big Data](https://github.com/Avaldez77/Data-Engineering-Big-Data-Portafolio),
+and [Data Science](https://github.com/Avaldez77/Data-science-Portafolio).
+
 The repository has two kinds of material:
 
 - **Case studies** document the original process, design decisions, and selected
