@@ -14,11 +14,13 @@ chosen audit behavior is documented and tested.
 
 ## 2. Retry and recovery policy
 
-Add a bounded retry policy around a simulated transient file-read failure.
-Inject the failure in a test rather than relying on an actual network share.
+The [demo retry helper](../rpa_demo/retry.py) demonstrates a bounded retry for
+transient `OSError` failures. Its tests inject failures and a no-op sleeper;
+they never access a network share.
 
 **Acceptance criteria:** attempts are capped, permanent validation errors are
-not retried, and the final failure is visible to the caller.
+not retried, and the final failure is visible to the caller. Extend the helper
+with an explicit backoff schedule and test its upper bound.
 
 ## 3. Notification approval gate
 

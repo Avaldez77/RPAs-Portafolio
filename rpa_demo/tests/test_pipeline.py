@@ -8,6 +8,7 @@ from datetime import date
 from pathlib import Path
 
 from rpa_demo.pipeline import load_invoices, run_pipeline, select_overdue
+from rpa_demo.retry import retry_transient
 
 
 HEADERS = [
@@ -29,6 +30,47 @@ def write_rows(path: Path, rows: list[list[str]], headers: list[str] = HEADERS) 
 
 
 class PipelineTests(unittest.TestCase):
+    def test_transient_retry_succeeds_within_attempt_limit(self) -> None:
+        attempts = 0
+        waits: list[float] = []
+
+        def operation() -> str:
+            nonlocal attempts
+            attempts += 1
+            if attempts < 3:
+                raise OSError("temporary file lock")
+            return "ready"
+
+        result = retry_transient(operation, max_attempts=3, sleeper=waits.append)
+
+        self.assertEqual(result, "ready")
+        self.assertEqual(attempts, 3)
+        self.assertEqual(waits, [0.5, 0.5])
+
+    def test_permanent_validation_error_is_not_retried(self) -> None:
+        attempts = 0
+
+        def operation() -> None:
+            nonlocal attempts
+            attempts += 1
+            raise ValueError("invalid source data")
+
+        with self.assertRaisesRegex(ValueError, "invalid source data"):
+            retry_transient(operation, max_attempts=3, sleeper=lambda _: None)
+        self.assertEqual(attempts, 1)
+
+    def test_retry_limit_is_enforced(self) -> None:
+        attempts = 0
+
+        def operation() -> None:
+            nonlocal attempts
+            attempts += 1
+            raise OSError("source unavailable")
+
+        with self.assertRaisesRegex(OSError, "source unavailable"):
+            retry_transient(operation, max_attempts=2, sleeper=lambda _: None)
+        self.assertEqual(attempts, 2)
+
     def test_missing_column_is_reported(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "input.csv"
